@@ -13,8 +13,8 @@
 BootStrap: debootstrap
 OSVersion: jessie
 # local mirror
-MirrorURL: file:///var/ftp/pub/debian
-#MirrorURL: http://ftp.fr.debian.org/debian/
+#MirrorURL: file:///var/ftp/pub/debian
+MirrorURL: http://ftp.us.debian.org/debian/
 
 %runscript
 echo "This is what happens when you run the container..."
