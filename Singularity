@@ -9,6 +9,9 @@
 # Tru Huynh <tru@pasteur.fr>
 # https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 # need 1GB to accomodate requirements
+# 2017/06/07: adding labels (Singularity 2.3)
+%labels
+MAINTAINER truatpasteurdotfr
 
 BootStrap: debootstrap
 OSVersion: jessie
