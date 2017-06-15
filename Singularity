@@ -9,9 +9,9 @@
 # Tru Huynh <tru@pasteur.fr>
 # https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 # need 1GB to accomodate requirements
+# 2017/06/15: starts chrome in the runscript
 # 2017/06/07: adding labels (Singularity 2.3)
-%labels
-MAINTAINER truatpasteurdotfr
+
 
 BootStrap: debootstrap
 OSVersion: jessie
@@ -20,7 +20,19 @@ OSVersion: jessie
 MirrorURL: http://ftp.us.debian.org/debian/
 
 %runscript
-echo "This is what happens when you run the container..."
+echo 'google chrome in the container:'
+echo 'singularity run -B /run container.img'
+echo 'if you want a discardable instance use:'
+echo 'singularity run -B /run -H `mktemp -d /dev/shm/chromeXXXX` container.img'
+echo ''
+
+/opt/google/chrome/google-chrome \
+--bwsi \
+--disable-metrics \
+--no-first-run \
+--no-sandbox \
+--disable-translate \
+"$@"
 
 %post
 echo "Hello from inside the container"
@@ -43,3 +55,6 @@ apt-get -y upgrade
 
 # kill hanging dbus
 pkill -u 104
+
+%labels
+MAINTAINER truatpasteurdotfr
