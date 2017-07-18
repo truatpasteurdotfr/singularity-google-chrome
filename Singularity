@@ -14,7 +14,7 @@
 
 
 BootStrap: debootstrap
-OSVersion: jessie
+OSVersion: stretch
 # local mirror
 #MirrorURL: file:///var/ftp/pub/debian
 MirrorURL: http://ftp.us.debian.org/debian/
@@ -39,8 +39,7 @@ echo "Hello from inside the container"
 # non interactive debian
 export DEBIAN_FRONTEND=noninteractive
 apt-get update
-apt-get -y install wget
-apt-get -y install libcanberra-gtk-module packagekit-gtk3-module
+apt-get -y install wget libcanberra-gtk-module packagekit-gtk3-module
 #wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 # no auto update: uncomment the following line *** before installing ***
 # touch /etc/default/google-chrome
