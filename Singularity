@@ -13,11 +13,9 @@
 # 2017/06/07: adding labels (Singularity 2.3)
 
 
-BootStrap: debootstrap
-OSVersion: stretch
-# local mirror
-#MirrorURL: file:///var/ftp/pub/debian
-MirrorURL: http://ftp.us.debian.org/debian/
+BootStrap: docker
+From: debian:9
+
 
 %runscript
 echo 'google chrome in the container:'
@@ -53,7 +51,7 @@ apt-get -y install -f
 apt-get -y upgrade
 
 # kill hanging dbus
-pkill -u 104
+#pkill -u 104
 
 %labels
 MAINTAINER truatpasteurdotfr
